@@ -5,3 +5,4 @@ using namespace core::opengl;
 
 #include <mainWindow/MainWindow.h>
 #include <program/program.h>
+#include <managedController/managedController.h>

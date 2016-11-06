@@ -14,7 +14,3 @@ public:
 	int main() override;
 };
 
-public ref class ManagedController {
-
-};
-
