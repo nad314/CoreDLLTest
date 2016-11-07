@@ -1,5 +1,5 @@
 #pragma once
-class MainWindow final : public core::Window {
+class MainWindow final : public core::Window, public core::Getter<MainWindow> {
 public:
 public:
 	void onOpening() override;

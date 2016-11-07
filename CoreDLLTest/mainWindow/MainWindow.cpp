@@ -1,7 +1,10 @@
 #include <main/main.h>
 
+MainWindow* core::Getter<MainWindow>::getter = NULL;
+
 void MainWindow::onOpening() {
 	Window::onOpening();
+	set(*this);
 	setTitle("Core DLL Test");
 	setFlags(glw_hidden);
 }
@@ -25,6 +28,9 @@ void MainWindow::onOpened() {
 	GL::createContext(*this);
 	glClear(GL_COLOR_BUFFER_BIT);
 	GL::swapBuffers(*this);
+	GL::setVsync(0);
+
+	ManagedController::get()->Reshape();
 }
 
 int MainWindow::onResize(const core::eventInfo& e) {
