@@ -8,3 +8,6 @@ void ManagedController::Run() {
 void ManagedController::Quit() {
 	PostQuitMessage(0);
 }
+
+void ManagedController::Reshape() {
+}

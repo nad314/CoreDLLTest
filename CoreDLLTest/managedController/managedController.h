@@ -7,12 +7,14 @@
 
 public ref class ManagedController {
 private:
-	ManagedController^ current = nullptr;
+	static ManagedController^ current = nullptr;
 	System::Windows::Window^ parentWindow;
 public:
 	ManagedController(System::Windows::Window^ wnd) { parentWindow = wnd; current = this; }
+	inline static ManagedController^ get() { return current; }
 
 	[System::STAThreadAttribute]
 	void Run();
 	void Quit();
+	void Reshape();
 };

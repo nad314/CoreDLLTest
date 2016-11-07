@@ -3,7 +3,7 @@
 void MainWindow::onOpening() {
 	Window::onOpening();
 	setTitle("Core DLL Test");
-	//setFlags(glw_hidden);
+	setFlags(glw_hidden);
 }
 
 void MainWindow::onClosing() {
@@ -20,6 +20,8 @@ void MainWindow::onOpened() {
 	RECT r;
 	GetClientRect(hwParent, &r);
 	move(core::Rect(4, 4, r.right-r.left-260, r.bottom-r.top-4));
+
+	ShowWindow(*this, SW_SHOWNORMAL);
 	GL::createContext(*this);
 	glClear(GL_COLOR_BUFFER_BIT);
 	GL::swapBuffers(*this);
