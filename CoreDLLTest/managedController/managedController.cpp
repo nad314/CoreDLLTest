@@ -12,10 +12,11 @@ void ManagedController::Quit() {
 void ManagedController::Reshape() {
 	try {
 		System::Windows::Controls::Grid^ grid = safe_cast<System::Windows::Controls::Grid^>(parentWindow->Content);
-		if (grid->RowDefinitions->Count < 1 || grid->ColumnDefinitions->Count < 1) return;
-		int gridHeight = (int)grid->RowDefinitions[0]->ActualHeight;
+		if (grid->RowDefinitions->Count < 2 || grid->ColumnDefinitions->Count < 1) return;
+		int gridHeight = (int)grid->RowDefinitions[1]->ActualHeight;
 		int gridWidth = (int)grid->ColumnDefinitions[0]->ActualWidth;
-		MainWindow::get().move(core::Rect(4, 4, gridWidth - 4, gridHeight - 4));
+		int menuHeight = grid->RowDefinitions[0]->ActualHeight;
+		MainWindow::get().move(core::Rect(4, 4 + menuHeight, gridWidth - 4, gridHeight - 4 + menuHeight));
 		MainWindow::get().DrawScene();
 	} catch (System::InvalidCastException^ e){}
 }
