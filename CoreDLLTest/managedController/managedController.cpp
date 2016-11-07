@@ -10,8 +10,11 @@ void ManagedController::Quit() {
 }
 
 void ManagedController::Reshape() {
-	int w = (int)(safe_cast<System::Windows::Controls::Grid^>(parentWindow->Content))->RenderSize.Width;
-	int h = (int)(safe_cast<System::Windows::Controls::Grid^>(parentWindow->Content))->RenderSize.Height;
-	MoveWindow(MainWindow::get(), 4, 4, w - 192 - 8, h - 8, true);
-	MainWindow::get().DrawScene();
+	try {
+		System::Windows::Controls::Grid^ grid = safe_cast<System::Windows::Controls::Grid^>(parentWindow->Content);
+		int gridHeight = (int)(safe_cast<System::Windows::Controls::Grid^>(parentWindow->Content))->RowDefinitions[0]->ActualHeight;
+		int gridWidth = (int)(safe_cast<System::Windows::Controls::Grid^>(parentWindow->Content))->ColumnDefinitions[0]->ActualWidth;
+		MainWindow::get().move(core::Rect(4, 4, gridWidth - 4, gridHeight - 4));
+		MainWindow::get().DrawScene();
+	} catch (System::InvalidCastException^ e){}
 }
