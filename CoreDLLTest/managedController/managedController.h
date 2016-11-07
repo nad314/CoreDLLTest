@@ -17,4 +17,5 @@ public:
 	void Run();
 	void Quit();
 	void Reshape();
+	void InitGL();
 };
