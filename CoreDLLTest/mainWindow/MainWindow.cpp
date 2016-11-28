@@ -25,6 +25,8 @@ void MainWindow::onOpened() {
 	move(core::Rect(4, 4, r.right-r.left-260, r.bottom-r.top-4));
 
 	ShowWindow(*this, SW_SHOWNORMAL);
+	SetForegroundWindow(hwParent);
+
 	GL::createContext(*this);
 	glClear(GL_COLOR_BUFFER_BIT);
 	GL::swapBuffers(*this);

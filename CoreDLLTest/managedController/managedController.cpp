@@ -16,7 +16,7 @@ void ManagedController::Reshape() {
 		int gridHeight = (int)grid->RowDefinitions[1]->ActualHeight;
 		int gridWidth = (int)grid->ColumnDefinitions[0]->ActualWidth;
 		int menuHeight = grid->RowDefinitions[0]->ActualHeight;
-		MainWindow::get().move(core::Rect(4, 4 + menuHeight, gridWidth - 4, gridHeight - 4 + menuHeight));
+		MainWindow::get().move(core::Rect(4, 4 + menuHeight, gridWidth, gridHeight - 4 + menuHeight));
 		MainWindow::get().DrawScene();
 	} catch (System::InvalidCastException^ e){}
 }
